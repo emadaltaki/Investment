@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 func main() {
-	fmt.Print("Hello World!!!")
+	var investmentAmount = 1000
+	var expectedReturn = 5.5
+	var years = 10
+	var futureValue = float64(investmentAmount) * math.Pow(1+expectedReturn/100, float64(years))
+	fmt.Println(futureValue)
 }
