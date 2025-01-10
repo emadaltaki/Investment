@@ -36,7 +36,11 @@ func main() {
 	profit := ebt * (1 - taxRate/100)
 	ratio := ebt / profit
 
-	fmt.Println(ebt)
-	fmt.Println(profit)
+	fmt.Println("ebt value: ", ebt)
+	fmt.Println("Profit Value", profit)
 	fmt.Println(ratio)
+	/// Note Use Printf to format the output use %v to print the value
+	fmt.Printf("profit Value: %v\nratio Value %v", profit, ratio)
+	/// Note Use Printf to change the dicimal value to integer  /// .0f is no dicimal value .1f is one dicimal value
+	fmt.Printf("profit Value: %.0f\nratio Value %.0f", profit, ratio)
 }
