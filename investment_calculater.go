@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	// Invetsment Calculater
@@ -26,7 +28,8 @@ func main() {
 	var revenue float64
 	var expenses float64
 	var taxRate float64
-	fmt.Print("Enter the revenue: ")
+
+	outputText("Enter the revenue:")
 	fmt.Scan(&revenue)
 	fmt.Print("Enter the expenses: ")
 	fmt.Scan(&expenses)
@@ -36,11 +39,23 @@ func main() {
 	profit := ebt * (1 - taxRate/100)
 	ratio := ebt / profit
 
-	fmt.Println("ebt value: ", ebt)
-	fmt.Println("Profit Value", profit)
-	fmt.Println(ratio)
+	// fmt.Println("ebt value: ", ebt)
+	// fmt.Println("Profit Value", profit)
+	// fmt.Println(ratio)
 	/// Note Use Printf to format the output use %v to print the value
-	fmt.Printf("profit Value: %v\nratio Value %v", profit, ratio)
+	// `` use this for lines
+	fmt.Printf(`Profit Value:
+	
+	%v ratio Value %v1`, profit, ratio)
 	/// Note Use Printf to change the dicimal value to integer  /// .0f is no dicimal value .1f is one dicimal value
-	fmt.Printf("profit Value: %.0f\nratio Value %.0f", profit, ratio)
+	// fmt.Printf("profit Value: %.0f\nratio Value %.0f", profit, ratio)
+
+	// //fmt.Sprintf adds a return
+	// formatedFV := fmt.Sprintf("\nprofit Value %.0f", profit)
+	// fmt.Println(formatedFV)
+}
+
+// define a function to output text
+func outputText(text string) {
+	fmt.Print(text)
 }
