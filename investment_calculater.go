@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math"
 	"os"
+	"strconv"
 )
 
 func writeToFile(balance int) {
@@ -12,20 +13,23 @@ func writeToFile(balance int) {
 	os.WriteFile("output.txt", []byte(balanceText), 0644)
 }
 
-func readFromFile() {
+func readFromFile() float64 {
 	data, err := os.ReadFile("output.txt")
 	if err != nil {
 		fmt.Println(err)
-		return
+		return 0
 	} else {
 		fmt.Println(string(data))
+		bal, _ := strconv.ParseFloat(string(data), 64)
+		fmt.Println(bal)
+		return bal
 	}
 }
 func main() {
-	var moneyExists int = 1000
+	var moneyExists float64 = readFromFile()
 	for {
 
-		var deductMoney int
+		var deductMoney float64
 		fmt.Println("Enter the money you want to deduct: ")
 		fmt.Scan(&deductMoney)
 
@@ -40,7 +44,7 @@ func main() {
 		// 	writeToFile(moneyExists)
 		// }
 		moneyExists = moneyExists - deductMoney
-		writeToFile(moneyExists)
+		writeToFile(int(moneyExists))
 		if deductMoney == 0 {
 			break
 		}
