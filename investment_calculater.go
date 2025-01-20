@@ -11,31 +11,42 @@ func writeToFile(balance int) {
 
 	os.WriteFile("output.txt", []byte(balanceText), 0644)
 }
-func main() {
 
+func readFromFile() {
+	data, err := os.ReadFile("output.txt")
+	if err != nil {
+		fmt.Println(err)
+		return
+	} else {
+		fmt.Println(string(data))
+	}
+}
+func main() {
+	var moneyExists int = 1000
 	for {
 
-		var moneyExists int = 1000
-		fmt.Println("Enter the money you have: ")
-		fmt.Scan(&moneyExists)
+		var deductMoney int
+		fmt.Println("Enter the money you want to deduct: ")
+		fmt.Scan(&deductMoney)
 
-		switch moneyExists {
+		// switch moneyExists {
 
-		case 1000:
-			fmt.Println("You have 1000")
-			writeToFile(moneyExists)
+		// case 1000:
+		// 	fmt.Println("You have 1000")
+		// 	writeToFile(moneyExists)
 
-		case 2000:
-			fmt.Println("You have 2000")
-			writeToFile(moneyExists)
-		}
-
-		fmt.Println("Outt")
-		if moneyExists == 1000 {
+		// case 2000:
+		// 	fmt.Println("You have 2000")
+		// 	writeToFile(moneyExists)
+		// }
+		moneyExists = moneyExists - deductMoney
+		writeToFile(moneyExists)
+		if deductMoney == 0 {
 			break
 		}
 
 	}
+	readFromFile()
 	// Invetsment Calculater
 	// const inflationRate float64 = 2
 	// expectedReturn := 5.5
