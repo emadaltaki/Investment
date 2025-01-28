@@ -8,10 +8,10 @@ import (
 )
 
 type user struct {
-	firstName  string
-	lastName   string
-	birthDate  string
-	createdAir time.Time
+	firstName string
+	lastName  string
+	birthDate string
+	createdAt time.Time
 }
 
 func writeToFile(balance int) {
@@ -39,6 +39,13 @@ func modifyPointer(age *int) {
 }
 func main() {
 
+	var user1 user = user{
+		firstName: "John",
+		lastName:  "Doe",
+		birthDate: "1990-01-01",
+		createdAt: time.Now(),
+	}
+	fmt.Println(user1)
 	// age := 25
 	// fmt.Scan()
 	// fmt.Println(age)
