@@ -37,6 +37,13 @@ func modifyPointer(age *int) {
 	*age = *age + 1
 
 }
+func (u *user) outputValues() {
+	(*u).firstName = "Jane"
+	fmt.Println(u.firstName)
+	fmt.Println(u.lastName)
+	fmt.Println(u.birthDate)
+	fmt.Println(u.createdAt)
+}
 func main() {
 
 	var user1 user = user{
@@ -45,6 +52,7 @@ func main() {
 		birthDate: "1990-01-01",
 		createdAt: time.Now(),
 	}
+	(&user1).outputValues()
 	fmt.Println(user1)
 	// age := 25
 	// fmt.Scan()
